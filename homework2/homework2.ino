@@ -48,7 +48,9 @@ void loop() {
   mood = moodChangeWhenIgnored(mood);
 
   changeLEDMood(mood);
-  
+
+  displayMoodLevel(mood);
+
 }
 
 
@@ -112,5 +114,27 @@ void changeLEDMood(int mood){
     analogWrite(GreenLEDPin, brightnessInterval * (neutralMood - mood));
     analogWrite(BlueLEDPin, 255 );
   }
+
+}
+
+
+void displayMoodLevel(int mood){
+
+  if (mood >=0 && mood <= 5){
+      Serial.println("Mood 1-5 : Very Bad Mood! Urgent Pets!!!");
+  }
+
+  else if (mood >= 6 && mood <= 10){
+      Serial.println("Mood 6-10 : Bad Mood! Needs Pets!");
+  }
+
+  else if (mood >= 11 && mood <= 15){
+      Serial.println("Mood 11-15 : Neutral Mood! Pets always welcomed!");
+  }
+
+  else if (mood >= 16 && mood <= 20){
+      Serial.println("Mood 16-20 : Happy Mood!");
+  }
+
 
 }
