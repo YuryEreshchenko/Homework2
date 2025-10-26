@@ -27,6 +27,10 @@ unsigned long reducedTimer = 0;
 const long unTouchInterval = 5000;
 const long reducedInterval = 1000;
 
+bool blinkState = true;
+unsigned long previousMillis = 0;
+const long interval = 100;
+
 
 void setup() {
   Serial.begin(9600);
@@ -109,10 +113,35 @@ void changeLEDMood(int mood){
     analogWrite(BlueLEDPin, 255 - brightnessInterval * (mood - neutralMood));
   }
 
-  else {
+  else if (mood > 0) {
     analogWrite(RedLEDPin, 255 - brightnessInterval * (neutralMood - mood));
     analogWrite(GreenLEDPin, brightnessInterval * (neutralMood - mood));
     analogWrite(BlueLEDPin, 255 );
+  }
+
+  else if (mood == 0){
+
+  unsigned long currentMillis = millis();
+  if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
+
+    if (blinkState == true){
+    analogWrite(RedLEDPin, 255);
+    analogWrite(GreenLEDPin, 255);
+    analogWrite(BlueLEDPin, 0 );
+    }
+
+    else if (blinkState == false){
+    analogWrite(RedLEDPin, 0);
+    analogWrite(GreenLEDPin, 0);
+    analogWrite(BlueLEDPin, 0 );
+    }
+
+    blinkState = !blinkState;
+
+  }
+
+
   }
 
 }
