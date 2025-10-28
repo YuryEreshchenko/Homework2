@@ -1,12 +1,13 @@
 /*
  * Yury Ereshchenko 114012010
- * RGB LED Controller with Button Interface
+ * Interactive Toy
  * 
- * Single click: Cycle through colors
- * Double click: Toggle LED ON/OFF
- * The LED color and state are indiciated in the serial monitor
+ * RGB shows the toys mood 
+ * The user can pet the toy to make it happier (blue light)
+ * The toy becomes sad and devrease its points when untoched for a while (red)
+ * When the toy get really unhappy its strats flashing white and blue
  * 
- * Date: 15/10/2025
+ * Date: 29/10/2025
  */
 
 // Pin configuration
