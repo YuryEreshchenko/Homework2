@@ -127,9 +127,9 @@ void changeLEDMood(int mood){
     previousMillis = currentMillis;
 
     if (blinkState == true){
-    analogWrite(RedLEDPin, 255);
-    analogWrite(GreenLEDPin, 255);
-    analogWrite(BlueLEDPin, 0 );
+    analogWrite(RedLEDPin, 0);
+    analogWrite(GreenLEDPin, 0);
+    analogWrite(BlueLEDPin, 255 );
     }
 
     else if (blinkState == false){
