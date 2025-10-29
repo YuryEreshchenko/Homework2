@@ -5,7 +5,7 @@
  * RGB shows the toys mood 
  * The user can pet the toy to make it happier (blue light)
  * The toy becomes sad and devrease its points when untoched for a while (red)
- * When the toy get really unhappy its strats flashing white and blue
+ * When the toy get really unhappy its strats flashing white and yellow
  * 
  * Date: 29/10/2025
  */
@@ -20,7 +20,7 @@ const int pushButton = 2;
 int pushButtonState = 0;
 bool buttonPressed = false;   // Prevents multiple triggers from single press
 
-
+//Mood variable
 int mood = 0;
 const int neutralMood = 10;
 unsigned long touchedTimer = 0;
@@ -28,6 +28,7 @@ unsigned long reducedTimer = 0;
 const long unTouchInterval = 5000;
 const long reducedInterval = 1000;
 
+//Blink varaible
 bool blinkState = true;
 unsigned long previousMillis = 0;
 const long interval = 100;
